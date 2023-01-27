@@ -1,0 +1,7 @@
+{
+    "Name": "name",
+    "Address": "address",
+    "Date": "date",
+    "BookingDate": "date_this_month",
+    "DestinationCity": "city"
+}
