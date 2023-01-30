@@ -1,7 +1,8 @@
 {
     "Name": "name",
-    "Address": "address",
-    "Date": "date",
+    "Email": "email",
+    "ContactNumber": "phone_number",
+    "DOB": "date_of_birth",
     "BookingDate": "date_this_month",
     "DestinationCity": "city"
 }
