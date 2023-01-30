@@ -132,3 +132,7 @@ dmypy.json
 src/*.csv
 src/*.parquet
 src/output.csv
+
+
+#temp unit tests
+tests
