@@ -1,7 +1,6 @@
 # gen-fake-data-files
 
 A command line app to generate fake data files as parquet or csv by providing a metadata file which defines the data.
-(this is an early commit and still work in progress so expect updates!)
 
 ## Setup
 
@@ -30,8 +29,7 @@ In the `/src` folder, create a json file where the keys will be the column names
 }
 ```
 
-The values can be any Faker provider.
-These are coded in the `map_inputs_to_faker` function so you can add more there.
+The values can be any [Faker provider](https://faker.readthedocs.io/en/master/providers.html).
 
 ## Run
 
@@ -43,4 +41,7 @@ python main.py
 # OR
 # pass the inputs at runtime
 python main.py -f 10 -n 20 -fn output -ft csv -m metadata.json
+# OR
+# more verbose
+python main.py --num_files 10 --num_rows 20 --file_name output --file_format csv --meta_file metadata.json
 ```
