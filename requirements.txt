@@ -2,3 +2,4 @@ click
 faker
 pandas
 pyarrow
+python-dotenv

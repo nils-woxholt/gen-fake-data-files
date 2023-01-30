@@ -12,13 +12,12 @@
             "console": "integratedTerminal",
             "justMyCode": true
         },
-        ,
         {
             "name": "CSV file",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["-f", "10", "-n", "10", "-fn", "out", "-ft", "csv", "-m", "metadata.json"],
+            "args": ["-f", "2", "-n", "10", "-fn", "out", "-ft", "csv", "-m", "metadata.json"],
             "console": "integratedTerminal",
             "cwd": "${fileDirname}",
             "justMyCode": true        

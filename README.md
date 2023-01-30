@@ -36,6 +36,10 @@ The values can be any [Faker provider](https://faker.readthedocs.io/en/master/pr
 ```bash
 # run from the src folder
 cd src
+
+# optionally set a local - default is en_US
+export FAKER_LOCALE=en_GB
+
 # let the program prompt you for inputs
 python main.py
 # OR
@@ -45,3 +49,8 @@ python main.py -f 10 -n 20 -fn output -ft csv -m metadata.json
 # more verbose
 python main.py --num_files 10 --num_rows 20 --file_name output --file_format csv --meta_file metadata.json
 ```
+
+## Notes
+
+- the app appends the appropriate extension to the output filename (.parquet, .csv, .json)
+- Faker localization support is different per locale and provider ([see here for more](https://faker.readthedocs.io/en/master/locales.html))
