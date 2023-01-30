@@ -65,23 +65,23 @@ def map_inputs_to_faker(meta_file: str) -> dict:
 @click.option('--file_name', '-f', type=str, help='Name of the output file.', prompt=True)
 @click.option('--file_format', '-ft', type=str, default='parquet', help='File format to save the data in - parquet or csv', prompt=True)
 @click.option('--meta_file', '-m', type=click.Path(), default='metadata.json', help='metadata file with columns', prompt=True)
-def generate_customers(num_records, file_name, file_format, meta_file):
-    """ Generate fake customer names and addresses and save them to a file """
+def generate_data(num_records, file_name, file_format, meta_file):
+    """ Generate fake data and save to a file """
     # Create an empty dataframe with columns specified in the metadata file
     data_types = map_inputs_to_faker(meta_file)
-    customers = pd.DataFrame(columns=data_types.keys())
+    output_data = pd.DataFrame(columns=data_types.keys())
 
     # Generate the specified number of fake customer names and addresses
     for _ in range(num_records):
-        customers = customers.append({col: data_types[col]() for col in customers.columns}, ignore_index=True)
+        output_data = output_data.append({col: data_types[col]() for col in output_data.columns}, ignore_index=True)
 
     # Save the customer data to a file
     if file_format == "parquet":
-        customers.to_parquet(file_name, index=False)
+        output_data.to_parquet(file_name, index=False)
     elif file_format == "csv":
-        customers.to_csv(file_name, index=False)
+        output_data.to_csv(file_name, index=False)
     else:
         click.echo("Invalid file format, please choose either 'parquet' or 'csv'.")
 
 if __name__ == '__main__':
-    generate_customers()
+    generate_data()
