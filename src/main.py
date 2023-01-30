@@ -61,10 +61,10 @@ def map_inputs_to_faker(meta_file: str) -> dict:
 
 
 @click.command()
-@click.option('--num_records', '-n', type=int, help='The number of records to generate.')
-@click.option('--file_name', '-f', type=str, help='Name of the output file.')
-@click.option('--file_format', '-ft', type=str, default='parquet', help='File format to save the data in - parquet or csv')
-@click.option('--meta_file', '-m', type=click.Path(), help='metadata file with columns')
+@click.option('--num_records', '-n', type=int, default=1000, help='The number of records to generate.', prompt=True)
+@click.option('--file_name', '-f', type=str, help='Name of the output file.', prompt=True)
+@click.option('--file_format', '-ft', type=str, default='parquet', help='File format to save the data in - parquet or csv', prompt=True)
+@click.option('--meta_file', '-m', type=click.Path(), default='metadata.json', help='metadata file with columns', prompt=True)
 def generate_customers(num_records, file_name, file_format, meta_file):
     """ Generate fake customer names and addresses and save them to a file """
     # Create an empty dataframe with columns specified in the metadata file
