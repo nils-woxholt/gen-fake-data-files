@@ -1,8 +1,9 @@
 {
-    "Name": "name",
-    "Email": "email",
-    "ContactNumber": "phone_number",
-    "DOB": "date_of_birth",
-    "BookingDate": "date_this_month",
-    "DestinationCity": "city"
+    "Name": {"type": "name"},
+    "Email": {"type": "email"},
+    "ContactNumber": {"type": "phone_number"},
+    "DOB": {"type": "date_of_birth"},
+    "BookingDate": {"type": "date_this_month"},
+    "DestinationCity": {"type": "city"},
+    "TicketNumber": {"type":"bothify", "params": {"text":"????-########", "letters":"ABCDEFGHIJ"}}
 }

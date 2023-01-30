@@ -13,6 +13,7 @@ def map_inputs_to_faker(meta_file: str) -> dict:
     fake = Faker()
     data_types = {
         # providers
+        "bothify": fake.bothify,
         "language_code": fake.language_code,
         "locale": fake.locale,
         "random_digit": fake.random_digit,
@@ -57,7 +58,20 @@ def map_inputs_to_faker(meta_file: str) -> dict:
     }
     with open(meta_file) as json_file:
         meta_data = json.load(json_file)
-    return {col: data_types[meta_data[col]] for col in meta_data if meta_data[col] in data_types}
+
+    def generate_faker_func(col, faker_type, faker_params=None):
+        if faker_params:
+            return lambda: getattr(fake, faker_type)(**faker_params)
+        return data_types[faker_type]
+
+    mapped_inputs = {}
+    for col in meta_data:
+        type_ = meta_data[col].get("type", None)
+        params = meta_data[col].get("params", None)
+        mapped_inputs[col] = generate_faker_func(col, type_, params)
+    
+    return mapped_inputs
+
 
 
 @click.command()
