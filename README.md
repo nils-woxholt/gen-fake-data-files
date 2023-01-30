@@ -37,7 +37,7 @@ The values can be any [Faker provider](https://faker.readthedocs.io/en/master/pr
 # run from the src folder
 cd src
 
-# optionally set a local - default is en_US
+# optionally set a locale - default is en_US
 export FAKER_LOCALE=en_GB
 
 # let the program prompt you for inputs
