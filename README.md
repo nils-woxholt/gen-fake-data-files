@@ -16,25 +16,31 @@ pip install -r requirements.txt
 
 ## Create a metadata file
 
-Create a json file where the keys will be the column names and the values will be the data types
+In the `/src` folder, create a json file where the keys will be the column names and the values will be the data types and any Faker parameters that you want to use.
 
 ```json
 {
-    "Name": "name",
-    "Address": "address",
-    "Date": "date",
-    "BookingDate": "date_this_month",
-    "DestinationCity": "city",
+    "Name": {"type": "name"},
+    "Email": {"type": "email"},
+    "ContactNumber": {"type": "phone_number"},
+    "DOB": {"type": "date_of_birth"},
+    "BookingDate": {"type": "date_this_month"},
+    "DestinationCity": {"type": "city"},
+    "TicketNumber": {"type":"bothify", "params": {"text":"????-########", "letters":"ABCDEFGHIJ"}}
 }
 ```
 
-The values can be any Faker provider (currently only providers with no additional paramaters are supported).
+The values can be any Faker provider.
 These are coded in the `map_inputs_to_faker` function so you can add more there.
 
 ## Run
 
 ```bash
+# run from the src folder
 cd src
-
-python main.py -n 1000 -f output.csv -ft csv -m metadata.json
+# let the program prompt you for inputs
+python main.py
+# OR
+# pass the inputs at runtime
+python main.py -n 10 -f output.csv -ft csv -m metadata.json
 ```
