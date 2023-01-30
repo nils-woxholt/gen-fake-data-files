@@ -18,7 +18,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["-n", "10", "-f", "out.csv", "-ft", "csv", "-m", "metadata.json"],
+            "args": ["-f", "10", "-n", "10", "-fn", "out", "-ft", "csv", "-m", "metadata.json"],
             "console": "integratedTerminal",
             "cwd": "${fileDirname}",
             "justMyCode": true        

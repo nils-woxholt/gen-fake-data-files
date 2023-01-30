@@ -42,5 +42,5 @@ cd src
 python main.py
 # OR
 # pass the inputs at runtime
-python main.py -n 10 -f output.csv -ft csv -m metadata.json
+python main.py -f 10 -n 20 -fn output -ft csv -m metadata.json
 ```
