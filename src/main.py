@@ -38,6 +38,7 @@ def map_inputs_to_faker(meta_file: str) -> dict:
         "date_time": fake.date_time,
         "date_of_birth": fake.date_of_birth,
         "date_this_century": fake.date_this_century,
+        "date_this_month": fake.date_this_month,
         "date": fake.date,
         # person
         "name": fake.name,
